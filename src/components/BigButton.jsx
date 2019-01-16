@@ -7,7 +7,7 @@ import '../css/style.css';
 export const TextContainer = styled.div`
     padding:20px 10px;
     margin:5px;
-    text-shadow:0px 1px 0px #005667;
+    text-shadow:0px 0px 0px #005667;
     color: #ffffff;
     font-size:18px;
     font-weight:bold;
@@ -19,6 +19,7 @@ export const TextContainer = styled.div`
     align-items: center;
     justify-content: center;
 `;
+
 
 const ButtonContainer = styled.div`
     margin:8px;

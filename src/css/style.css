@@ -1,9 +1,9 @@
 body {
 background-color: #ffffff;
- font-family: "Roboto",sans-serif; 
+ font-family: "Roboto",sans-serif;
  color: #ffffff;
  margin: 0px;
-max-width: 1109px;
+ max-width: 10000px;
 }
 
 html {
@@ -15,12 +15,12 @@ overflow-y:hidden;
 	margin:70px auto;
 	width: 100%;
 	height: 90px;
-	background-color: #055679; 
+	background-color: #055679;
 }
 .answer-div {
 	margin:70px auto;
 	height: 90px;
-	background-color: #055679; 
+	background-color: #055679;
 }
 
 .txt {
@@ -109,12 +109,12 @@ a:hover{
 	font-family:Arial;
 	font-size:19px;
 	font-weight:bold;
-	padding:60px 60px; 
+	padding:60px 60px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #005667;
 	margin:10px;
 	white-space: normal;
-	
+
 }
 .newButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #055679), color-stop(1, #055679));
@@ -130,7 +130,3 @@ a:hover{
 	position:relative;
 	top:1px;
 }
-
-        
-
-        	
