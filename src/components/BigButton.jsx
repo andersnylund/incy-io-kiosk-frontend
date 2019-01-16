@@ -5,16 +5,19 @@ import PropTypes from 'prop-types'
 import '../css/style.css';
 
 export const TextContainer = styled.div`
-    padding:10px 10px;
+    padding:20px 10px;
     margin:5px;
-    text-decoration:none;
     text-shadow:0px 1px 0px #005667;
     color: #ffffff;
-    font-size:19px;
+    font-size:18px;
     font-weight:bold;
     width: 200px;
+    height: 100px;
     border: 0px solid #000000;
     word-wrap: break-word;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const ButtonContainer = styled.div`
