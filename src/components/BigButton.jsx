@@ -12,7 +12,7 @@ export const TextContainer = styled.div`
     color: #ffffff;
     font-size:19px;
     font-weight:bold;
-    width: 150px;
+    width: 200px;
     border: 0px solid #000000;
     word-wrap: break-word;
 `;
