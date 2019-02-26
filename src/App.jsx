@@ -7,13 +7,13 @@ import {
     SELECT,
     MULTI_SELECT,
     STR,
-    UNITIALIZED as QUESTION_TYPE_UNINITIALIZED
+    UNINITIALIZED
 } from './constants/questionTypes';
 
 const initialState = {
     questions: [],
     currentQuestionID: null,
-    currentQuestionType: QUESTION_TYPE_UNINITIALIZED,
+    currentQuestionType: UNINITIALIZED,
     currentQuestionChoices: [],
     currentIsRequired: false,
     answers: {},
