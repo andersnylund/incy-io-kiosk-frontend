@@ -10,7 +10,6 @@ const ThankYouPage = () => (
                 <FormattedMessage id="thankyou.phrase"
                     defaultMessage="Thank you for the feedback!"
                     description="Thank you text on thank you page"
-                    values={{ what: 'react-intl' }}
                 />
             </h2>
         </div>

@@ -144,7 +144,6 @@ class QuestionPage extends React.Component {
                         <FormattedMessage id="questionpage.required"
                             defaultMessage="This field is required!"
                             description="Requirement text"
-                            values={{ what: 'react-intl' }}
                         />
                     </Typography>}
                 </div>

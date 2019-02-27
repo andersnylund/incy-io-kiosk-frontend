@@ -28,7 +28,6 @@ const BigButton = ({ onClick, text }) => {
                         <FormattedMessage id="bigbutton.submit"
                             defaultMessage="Submit"
                             description="Submit button text"
-                            values={{ what: 'react-intl' }}
                         />
                     </TextContainer>
                 </Button>
