@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import QuestionPage from '../components/QuestionPage';
 import { addAnswerAction } from '../actions/answerActions';
 import { setSelectedChoicesAction } from '../actions/choiceActions';
+import { undoStateAction } from '../actions/historyActions';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,6 +15,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = {
     addAnswer: addAnswerAction,
     setSelectedChoices: setSelectedChoicesAction,
+    goBack: undoStateAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionPage);
