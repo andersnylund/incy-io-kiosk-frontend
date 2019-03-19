@@ -1,4 +1,5 @@
 import { SAVE_STATE_ACTION, UNDO_STATE_ACTION, RESET_STATE_ACTION } from "../constants/actions";
+import store from '../store/index';
 
 const initialState = {
     previousStates: [],
@@ -9,7 +10,7 @@ const reducer = (state = initialState, action) => {
     if (action.type === SAVE_STATE_ACTION) {
         return {
             ...state,
-            previousStates: [...state.previousStates, state],
+            previousStates: [...state.previousStates, store],
         };
     }
     if (action.type === UNDO_STATE_ACTION) {
@@ -23,7 +24,7 @@ const reducer = (state = initialState, action) => {
             previousStates: [],
         };
     }
-
+    return state;
 };
 
 export default reducer;
