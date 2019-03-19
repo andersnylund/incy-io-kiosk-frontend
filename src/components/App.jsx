@@ -57,6 +57,8 @@ class App extends React.Component {
         getAllChoices: func.isRequired,
         choices: object.isRequired,
         resetText: func.isRequired,
+        saveState: func.isRequired,
+        undoState: func.isRequired,
     }
 
     setFirstQuestion = async () => {
@@ -135,6 +137,7 @@ class App extends React.Component {
             setCurrentQuestion,
             setCurrentChoices,
             resetText,
+            saveState,
         } = this.props;
         const { allQuestions, currentQuestion } = questions;
         if (currentQuestion.type === STR)
@@ -146,6 +149,7 @@ class App extends React.Component {
             const nextQuestion = allQuestions.find(question => question.position === nextPos);
             setCurrentChoices(nextQuestion.position);
             setCurrentQuestion(nextQuestion);
+            saveState();
         } else {
             this.submitObservation();
         }
