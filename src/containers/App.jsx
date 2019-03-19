@@ -7,7 +7,7 @@ import { setCategoryAction, setPlaceAction } from '../actions/contextActions';
 import { setCurrentChoicesAction, getAllChoicesAction } from '../actions/choiceActions';
 import { resetTextAction } from '../actions/UiActions';
 import App from '../components/App';
-import { saveStateAction, undoStateAction } from '../actions/historyActions';
+import { saveStateAction, undoStateAction, resetStateAction } from '../actions/historyActions';
 
 const mapStateToProps = state => ({
     currentLanguageId: state.intl.locale,
@@ -34,6 +34,7 @@ const mapDispatchToProps = {
     resetText: resetTextAction,
     saveState: saveStateAction,
     undoState: undoStateAction,
+    resetState: resetStateAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

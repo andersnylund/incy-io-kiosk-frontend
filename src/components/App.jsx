@@ -8,6 +8,7 @@ import {
     SELECT,
     STR,
 } from '../constants/questionTypes';
+import store from '../store/index';
 
 class App extends React.Component {
 
@@ -59,6 +60,7 @@ class App extends React.Component {
         resetText: func.isRequired,
         saveState: func.isRequired,
         undoState: func.isRequired,
+        resetState: func.isRequired,
     }
 
     setFirstQuestion = async () => {
@@ -138,6 +140,7 @@ class App extends React.Component {
             setCurrentChoices,
             resetText,
             saveState,
+            resetState,
         } = this.props;
         const { allQuestions, currentQuestion } = questions;
         if (currentQuestion.type === STR)
@@ -149,9 +152,11 @@ class App extends React.Component {
             const nextQuestion = allQuestions.find(question => question.position === nextPos);
             setCurrentChoices(nextQuestion.position);
             setCurrentQuestion(nextQuestion);
-            saveState();
+            saveState(store.getState());
         } else {
             this.submitObservation();
+            resetState();
+
         }
     }
 
