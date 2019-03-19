@@ -1,4 +1,4 @@
-import { SAVE_STATE_ACTION, UNDO_STATE_ACTION } from '../constants/actions';
+import { SAVE_STATE_ACTION, UNDO_STATE_ACTION, RESET_STATE_ACTION } from '../constants/actions';
 
 export const saveStateAction = () => ({
     type: SAVE_STATE_ACTION,
@@ -6,4 +6,8 @@ export const saveStateAction = () => ({
 
 export const undoStateAction = () => ({
     type: UNDO_STATE_ACTION,
+});
+
+export const resetStateAction = () => ({
+    type: RESET_STATE_ACTION,
 });

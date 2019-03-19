@@ -1,4 +1,4 @@
-import { SAVE_STATE_ACTION, UNDO_STATE_ACTION } from "../constants/actions";
+import { SAVE_STATE_ACTION, UNDO_STATE_ACTION, RESET_STATE_ACTION } from "../constants/actions";
 
 const initialState = {
     previousStates: [],
@@ -16,6 +16,11 @@ const reducer = (state = initialState, action) => {
         return {
             previousStates: [...state.previousStates.pop()],
             state: state.history[state.history.previousStates.length - 1],
+        };
+    }
+    if (action.type === RESET_STATE_ACTION) {
+        return {
+            previousStates: [],
         };
     }
 
