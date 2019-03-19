@@ -10,12 +10,14 @@ import contextReducer from '../reducers/contextReducer';
 import flagsReducer from '../reducers/flagsReducer';
 import choiceReducer from '../reducers/choiceReducer';
 import loadingReducer from '../reducers/loadingReducer';
+import historyReducer from '../reducers/historyReducer';
 
 const initialState = {
     intl: initialStateIntl,
 };
 
 const combinedReducers = combineReducers({
+    history: historyReducer,
     intl: intlReducer,
     answers: answerReducer,
     ui: uiReducer,
