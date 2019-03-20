@@ -203,7 +203,6 @@ class App extends React.Component {
     goToPreviousQuestion = () => {
         const { questions } = this.props;
         const previousQuestion = questions.allQuestions.find( question => question.id === questions.shownQuestions[questions.shownQuestions.length - 1] );
-        console.log(previousQuestion);
         this.props.rewind(previousQuestion);
         this.updateProgressValue(previousQuestion.position);
     }
