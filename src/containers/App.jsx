@@ -16,7 +16,6 @@ const mapStateToProps = state => ({
     context: state.context,
     flags: state.flags,
     choices: state.choices,
-    progress: state.ui.progress,
 });
 
 const mapDispatchToProps = {

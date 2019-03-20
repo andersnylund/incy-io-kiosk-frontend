@@ -3,7 +3,6 @@ import QuestionPage from '../components/QuestionPage';
 import { addAnswerAction } from '../actions/answerActions';
 import { setSelectedChoicesAction } from '../actions/choiceActions';
 
-
 const mapStateToProps = (state, ownProps) => ({
     ...ownProps,
     text: state.ui.freeText.text,

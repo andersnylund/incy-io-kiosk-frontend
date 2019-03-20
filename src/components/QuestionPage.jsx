@@ -15,6 +15,7 @@ import {
 } from '@material-ui/core';
 import FreeText from '../containers/FreeText';
 import SkipButton from '../components/SkipButton';
+import GoBackButton from '../components/GoBackButton';
 import SubmitButton from '../components/SubmitButton';
 import Language from '../containers/Language';
 import MultiSelect from '../containers/MultiSelect';
@@ -82,6 +83,7 @@ class QuestionPage extends React.Component {
         showFieldRequired: func.isRequired,
         selectedChoices: array.isRequired,
         setSelectedChoices: func.isRequired,
+        goToPreviousQuestion: func.isRequired,
     }
     /**
      * @description rendering the button on the screen
@@ -229,6 +231,9 @@ class QuestionPage extends React.Component {
                                 />
                             }
                             {this.renderLanguageButtons()}
+                            <GoBackButton
+                                onClick={() => this.props.goToPreviousQuestion()}
+                            />
                         </Grid>
                     </Grid>
                 </Grid>

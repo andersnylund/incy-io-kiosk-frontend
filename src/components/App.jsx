@@ -196,7 +196,10 @@ class App extends React.Component {
 
     goToPreviousQuestion = () => {
         const { questions, answers } = this.props;
-        const previousQuestion = questions.find( question => question.id === answers[answers.length - 1].questionId );
+        console.log(questions);
+        console.log(answers[0]);
+        const previousQuestion = questions.allQuestions.find( question => question.id === answers[answers.length - 1].key );
+        console.log(previousQuestion);
         this.props.rewind(previousQuestion);
     }
 
@@ -264,6 +267,7 @@ class App extends React.Component {
                         currentIsRequired={currentQuestion.required}
                         moveToNextQuestion={this.moveToNextQuestion}
                         showFieldRequired={this.showFieldRequired}
+                        goToPreviousQuestion={this.goToPreviousQuestion}
                     />)}
             </div>
 
