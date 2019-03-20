@@ -34,6 +34,7 @@ class App extends React.Component {
         questions: shape({
             allQuestions: array.isRequired,
             currentQuestion: object,
+            shownQuestions: array.isRequired,
         }).isRequired,
         setQuestions: func.isRequired,
         flags: shape({
@@ -59,6 +60,7 @@ class App extends React.Component {
         resetText: func.isRequired,
         progressUpdate: func.isRequired,
         rewind: func.isRequired,
+        savePrevious: func.isRequired,
     }
 
     setFirstQuestion = async () => {
@@ -127,6 +129,11 @@ class App extends React.Component {
         this.moveToNextQuestion();
     }
 
+    updateProgressValue = (position) => {
+        const {questions, progressUpdate}  = this.props;
+        progressUpdate(Math.min((position * 100) / questions.allQuestions.length, 95));
+    };
+
     /**
      * @description Moves the questionnaire to the next question, or submits
      * the answers if no more questions to be answered.
@@ -137,20 +144,19 @@ class App extends React.Component {
             setCurrentQuestion,
             setCurrentChoices,
             resetText,
-            progressUpdate,
+            savePrevious,
         } = this.props;
         const { allQuestions, currentQuestion } = questions;
         if (currentQuestion.type === STR)
             resetText();
-
+        savePrevious(questions.currentQuestion);
         const nextPos = this.findNextQuestionPosition();
 
         if (nextPos !== null) {
             const nextQuestion = allQuestions.find(question => question.position === nextPos);
-            const nextProgressValue = Math.min((nextPos * 100) / questions.allQuestions.length, 95);
             setCurrentChoices(nextQuestion.position);
             setCurrentQuestion(nextQuestion);
-            progressUpdate(nextProgressValue);
+            this.updateProgressValue(nextPos);
         } else {
             this.submitObservation();
         }
@@ -195,12 +201,11 @@ class App extends React.Component {
     }
 
     goToPreviousQuestion = () => {
-        const { questions, answers } = this.props;
-        console.log(questions);
-        console.log(answers[0]);
-        const previousQuestion = questions.allQuestions.find( question => question.id === answers[answers.length - 1].key );
+        const { questions } = this.props;
+        const previousQuestion = questions.allQuestions.find( question => question.id === questions.shownQuestions[questions.shownQuestions.length - 1] );
         console.log(previousQuestion);
         this.props.rewind(previousQuestion);
+        this.updateProgressValue(previousQuestion.position);
     }
 
 

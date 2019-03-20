@@ -2,7 +2,7 @@ import { setAllAnsweredAction, setShowErrorAction, setErrorMsgAction } from '../
 import { connect } from 'react-redux';
 
 import { addAnswerAction, resetAnswersAction } from '../actions/answerActions';
-import { setQuestionsAction, setCurrentQuestionAction } from '../actions/questionActions';
+import { setQuestionsAction, setCurrentQuestionAction, savePreviousAction } from '../actions/questionActions';
 import { setCategoryAction, setPlaceAction } from '../actions/contextActions';
 import { resetTextAction, progressUpdateAction } from '../actions/UiActions';
 import { setCurrentChoicesAction, getAllChoicesAction } from '../actions/choiceActions';
@@ -33,6 +33,7 @@ const mapDispatchToProps = {
     resetText: resetTextAction,
     progressUpdate: progressUpdateAction,
     rewind: rewindAction,
+    savePrevious: savePreviousAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

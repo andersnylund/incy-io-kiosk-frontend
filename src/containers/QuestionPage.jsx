@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import QuestionPage from '../components/QuestionPage';
-import { addAnswerAction } from '../actions/answerActions';
+import { addAnswerAction, skipAnswerAction } from '../actions/answerActions';
 import { setSelectedChoicesAction } from '../actions/choiceActions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = {
     addAnswer: addAnswerAction,
     setSelectedChoices: setSelectedChoicesAction,
+    skipAnswer: skipAnswerAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionPage);

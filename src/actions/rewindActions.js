@@ -1,4 +1,4 @@
-import { REMOVE_ANSWER, SET_CURRENT_CHOICES, SET_CURRENT_QUESTION } from "../constants/actions";
+import { SET_CURRENT_CHOICES, SET_CURRENT_QUESTION, REMOVE_SHOWN_QUESTION} from "../constants/actions";
 
 export const rewindAction = (question) => {
     return (dispatch) => {
@@ -11,7 +11,8 @@ export const rewindAction = (question) => {
             payload: question.position,
         });
         dispatch({
-            type: REMOVE_ANSWER,
+            type: REMOVE_SHOWN_QUESTION,
+            payload: question.id,
         });
     };
 };
