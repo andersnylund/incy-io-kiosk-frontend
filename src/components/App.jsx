@@ -58,6 +58,7 @@ class App extends React.Component {
         choices: object.isRequired,
         resetText: func.isRequired,
         progressUpdate: func.isRequired,
+        rewind: func.isRequired,
     }
 
     setFirstQuestion = async () => {
@@ -191,6 +192,12 @@ class App extends React.Component {
         }
 
         return null; // Returns null if while loop doesn't return a question postion - this means that no more questions to display
+    }
+
+    goToPreviousQuestion = () => {
+        const { questions, answers } = this.props;
+        const previousQuestion = questions.find( question => question.id === answers[answers.length - 1].questionId );
+        this.props.rewind(previousQuestion);
     }
 
 

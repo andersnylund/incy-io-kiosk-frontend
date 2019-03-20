@@ -6,6 +6,7 @@ import { setQuestionsAction, setCurrentQuestionAction } from '../actions/questio
 import { setCategoryAction, setPlaceAction } from '../actions/contextActions';
 import { resetTextAction, progressUpdateAction } from '../actions/UiActions';
 import { setCurrentChoicesAction, getAllChoicesAction } from '../actions/choiceActions';
+import { rewindAction } from '../actions/rewindActions';
 import App from '../components/App';
 
 const mapStateToProps = state => ({
@@ -32,6 +33,7 @@ const mapDispatchToProps = {
     setCurrentChoices: setCurrentChoicesAction,
     resetText: resetTextAction,
     progressUpdate: progressUpdateAction,
+    rewind: rewindAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
