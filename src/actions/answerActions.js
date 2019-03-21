@@ -16,8 +16,3 @@ export const addAnswerAction = answer => {
 export const resetAnswersAction = () => ({
     type: RESET_ANSWERS,
 });
-
-export default {
-    addAnswerAction,
-    resetAnswersAction,
-};

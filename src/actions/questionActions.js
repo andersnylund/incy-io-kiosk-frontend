@@ -47,6 +47,3 @@ export const savePreviousAction = (question) => ({
     payload: question.id,
 });
 
-export default {
-    setQuestionsAction,
-};

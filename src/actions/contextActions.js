@@ -23,7 +23,3 @@ export const setPlaceAction = (langId) => {
     };
 };
 
-export default {
-    setCategoryAction,
-    setPlaceAction,
-};
