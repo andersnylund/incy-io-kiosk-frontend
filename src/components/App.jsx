@@ -156,26 +156,27 @@ class App extends React.Component {
      * the answers if no more questions to be answered.
      */
     moveToNextQuestion = async () => {
+
+        this.props.addShownQuestion(this.props.questions.currentQuestion);
+
         const {
             questions,
             setCurrentQuestion,
             resetText,
             progressUpdate,
             answers,
-            addShownQuestion,
         } = this.props;
-        const { allQuestions, currentQuestion } = questions;
+        const { allQuestions, currentQuestion, shownQuestions } = questions;
+
+        console.log(shownQuestions);
 
         // Adds the question to shown questions array
-        addShownQuestion(currentQuestion);
 
         if (currentQuestion.type === STR) {
             resetText();
         }
 
         // IDs of both answered and skipped questions
-        const answeredQuestionIds = Object.keys(answers.answers)
-            .map(answer => Number(answer)).concat(answers.skippedQuestionIds);
 
         const answeredChoiceIds = Object.values(answers.answers).map(object => {
             if (Array.isArray(object)) {
@@ -186,7 +187,7 @@ class App extends React.Component {
             }
         }).flat();
 
-        const unansweredQuestions = allQuestions.filter(question => !answeredQuestionIds.includes(question.id));
+        const unansweredQuestions = allQuestions.filter(question => !shownQuestions.includes(question.id));
 
         // iterates all unanswered questions and returns the next question to show
         const nextQuestion = unansweredQuestions.reduce((prevResult, question) => {
@@ -203,7 +204,7 @@ class App extends React.Component {
 
         if (nextQuestion) {
             setCurrentQuestion(nextQuestion);
-            progressUpdate(answeredQuestionIds.length / allQuestions.length * 100);
+            progressUpdate(shownQuestions.length / allQuestions.length * 100);
         } else {
             this.submitObservation();
         }
